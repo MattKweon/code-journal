@@ -11,6 +11,7 @@
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -19,24 +20,44 @@
   <header>
     <div class="container">
       <div class="row">
-        <h2>Code Journal</h2>
+        <div class="column-full">
+          <h2>Code Journal</h2>
+        </div>
       </div>
     </div>
   </header>
   <main>
     <div data-view="entry-form">
-      <form action="" method="post" id="new-entry">
-        <fieldset>
-          <legend>New Entry</legend>
-          <input type="image" src="images/placeholder-image-square.jpg" alt="placeholder-image-square" height="250" width="300">
-          <label for="title">Title</label>
-          <input type="text" id="title">
-          <label for="photo-url">Photo URL</label>
-          <input type="text" id="photo-url">
-          <label for="notes">Notes</label>
-          <textarea id="notes"></textarea>
-          <button form="new-entry" type="submit">SAVE</button>
-        </fieldset>
+      <form action="" method="post">
+        <div class="container">
+          <div class="row">
+            <div class="column-full">
+              <h1>New Entry</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-half">
+              <input class="image-button" type="image" src="images/placeholder-image-square.jpg" alt="placeholder-image-square">
+            </div>
+            <div class="column-half">
+              <label for="title">Title</label>
+              <input class="text" type="text" id="title">
+              <label for="photo-url">Photo URL</label>
+              <input class="text" type="text" id="photo-url">
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <label for="notes">Notes</label>
+              <textarea id="notes"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <button form="new-entry" type="submit">SAVE</button>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </main>
