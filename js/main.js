@@ -9,7 +9,20 @@ $imageUrl.addEventListener('input', addPhoto);
 var $form = document.querySelector('form');
 
 function submitEntry(event) {
-  event.preventdefault();
-
+  event.preventDefault();
+  var title = $form.elements.title.value;
+  var imageUrl = $form.elements.url.value;
+  var notes = $form.elements.notes.value;
+  var entryData = {
+    title,
+    imageUrl,
+    notes,
+    id: data.nextEntryId
+  };
+  data.nextEntryId++;
+  data.entries.unshift(entryData);
+  $imageUrl.setAttribute('src', '');
+  $form.reset();
 }
+
 $form.addEventListener('submit', submitEntry);
