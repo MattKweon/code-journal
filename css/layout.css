@@ -52,7 +52,7 @@ textarea {
   height: 150px;
 }
 
-button {
+.save-button {
   height: 30px;
   width: 60px;
   margin: 1rem 0;
