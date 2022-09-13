@@ -17,11 +17,11 @@ function submitEntry(event) {
     title,
     imageUrl,
     notes,
-    id: data.nextEntryId
+    currentId: data.nextEntryId
   };
   data.nextEntryId++;
   data.entries.unshift(entryData);
-  $imageUrl.setAttribute('src', '');
+  $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 }
 
