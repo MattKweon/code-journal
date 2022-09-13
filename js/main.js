@@ -56,9 +56,3 @@ function loadDom(event) {
   }
 }
 document.addEventListener('DOMContentLoaded', loadDom);
-
-// console.log(createNewEntry({
-//   title: 'hi',
-//   imageUrl: 'image-url',
-//   notes: 'byeee'
-// }));
