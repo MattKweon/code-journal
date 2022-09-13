@@ -37,14 +37,6 @@
   justify-content: flex-end;
 }
 
-.direction-column {
-  flex-direction: column;
-}
-
-label {
-  margin-top: 1rem;
-}
-
 #title,
 #image-url {
   height: 30px;
@@ -62,4 +54,11 @@ textarea {
 
 img {
   width: 100%;
+  margin-bottom: 1rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin: 1rem 0;
 }
