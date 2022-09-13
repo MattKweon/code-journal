@@ -32,3 +32,33 @@
     width: 50%;
   }
 }
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+#title,
+#image-url {
+  height: 30px;
+}
+
+textarea {
+  height: 150px;
+}
+
+.save-button {
+  height: 30px;
+  width: 60px;
+  margin: 1rem 0;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin: 1rem 0;
+}
