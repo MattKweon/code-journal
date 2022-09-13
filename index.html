@@ -40,21 +40,27 @@
               <img class="image-placeholder" src="images/placeholder-image-square.jpg" alt="placeholder-image-square">
             </div>
             <div class="column-half">
-              <label for="title">Title</label>
-              <input name="title" type="text" id="title" required>
-              <label for="url">Photo URL</label>
-              <input name="url" type="text" id="image-url" required="required">
+              <div class="row direction-column">
+                <label for="title">Title</label>
+                <input name="title" type="text" id="title" required>
+                <label for="url">Photo URL</label>
+                <input name="url" type="text" id="image-url" required="required">
+              </div>
             </div>
           </div>
           <div class="row">
             <div class="column-full">
-              <label for="notes">Notes</label>
-              <textarea name="notes" id="notes" required></textarea>
+              <div class="row direction-column">
+                <label for="notes">Notes</label>
+                <textarea name="notes" id="notes" required></textarea>
+              </div>
             </div>
           </div>
           <div class="row">
-            <div class="column-full align-end">
-              <button class="save-button" type="submit">SAVE</button>
+            <div class="column-full">
+              <div class="row justify-end">
+                <button class="save-button" type="submit">SAVE</button>
+              </div>
             </div>
           </div>
         </div>
