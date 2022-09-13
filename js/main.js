@@ -50,12 +50,12 @@ function createNewEntry(entry) {
 
 var $ul = document.querySelector('ul');
 
-function appendDomToDoc(event) {
+function loadDom(event) {
   for (var i = 0; i < data.entries.length; i++) {
     $ul.prepend(createNewEntry(data.entries[i]));
   }
 }
-document.addEventListener('DOMContentLoaded', appendDomToDoc);
+document.addEventListener('DOMContentLoaded', loadDom);
 
 // console.log(createNewEntry({
 //   title: 'hi',
