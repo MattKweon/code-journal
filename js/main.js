@@ -26,3 +26,39 @@ function submitEntry(event) {
 }
 
 $form.addEventListener('submit', submitEntry);
+
+function createNewEntry(entry) {
+  var newEl = document.createElement('li');
+  newEl.setAttribute('class', 'row');
+  var newChildEl = document.createElement('div');
+  newChildEl.setAttribute('class', 'column-half');
+  newEl.appendChild(newChildEl);
+  var imgEl = document.createElement('img');
+  imgEl.setAttribute('src', entry.imageUrl);
+  newChildEl.appendChild(imgEl);
+  var anotherChildEl = document.createElement('div');
+  anotherChildEl.setAttribute('class', 'column-half');
+  newEl.appendChild(anotherChildEl);
+  var titleEl = document.createElement('h2');
+  titleEl.textContent = entry.title;
+  anotherChildEl.appendChild(titleEl);
+  var notesEl = document.createElement('p');
+  notesEl.textContent = entry.notes;
+  anotherChildEl.appendChild(notesEl);
+  return newEl;
+}
+
+var $ul = document.querySelector('ul');
+
+function appendDomToDoc(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    $ul.prepend(createNewEntry(data.entries[i]));
+  }
+}
+document.addEventListener('DOMContentLoaded', appendDomToDoc);
+
+// console.log(createNewEntry({
+//   title: 'hi',
+//   imageUrl: 'image-url',
+//   notes: 'byeee'
+// }));
