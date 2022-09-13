@@ -17,7 +17,7 @@ function submitEntry(event) {
     title,
     imageUrl,
     notes,
-    Id: data.nextEntryId
+    id: data.nextEntryId
   };
   data.nextEntryId++;
   data.entries.unshift(entryData);
