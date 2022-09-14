@@ -34,6 +34,7 @@ $form.addEventListener('submit', submitEntry);
 function createNewEntry(entry) {
   var newEl = document.createElement('li');
   newEl.setAttribute('class', 'row');
+  newEl.setAttribute('data-entry-id', entry.id);
   var newChildEl = document.createElement('div');
   newChildEl.setAttribute('class', 'column-half');
   newEl.appendChild(newChildEl);
