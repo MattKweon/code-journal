@@ -76,17 +76,24 @@ document.addEventListener('DOMContentLoaded', loadDom);
 var $a = document.querySelector('a');
 var $viewEntries = document.querySelector('[data-view=entries]');
 var $viewEntryForm = document.querySelector('[data-view=entry-form]');
-var $button = document.querySelector('.new-entry-button');
 
-function entriesDisplayClick(event) {
+function clickDisplayView(event) {
   if (event.target === $a) {
     $viewEntries.className = 'view';
     $viewEntryForm.className = 'view hidden';
     data.view = 'entries';
-  } else if (event.target === $button) {
+  } else if (event.target.className === 'new-entry-button') {
     $viewEntries.className = 'view hidden';
     $viewEntryForm.className = 'view';
     data.view = 'entry-form';
   }
 }
-document.addEventListener('click', entriesDisplayClick);
+document.addEventListener('click', clickDisplayView);
+
+function clickEditIcon(event) {
+  if (event.target.className === 'edit-icon') {
+    $viewEntryForm.className = 'view';
+    $viewEntries.className = 'view hidden';
+  }
+}
+$ul.addEventListener('click', clickEditIcon);

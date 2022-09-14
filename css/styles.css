@@ -45,3 +45,7 @@ h2 a {
 span {
   font-size: 1.1rem;
 }
+
+.edit-icon {
+  cursor: pointer;
+}
