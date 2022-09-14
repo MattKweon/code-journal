@@ -56,3 +56,10 @@ function loadDom(event) {
   }
 }
 document.addEventListener('DOMContentLoaded', loadDom);
+
+// var $a = document.querySelector('a');
+
+// function entriesDisplayClick(event) {
+
+// }
+// $a.addEventListener('click', entriesDisplayClick);
