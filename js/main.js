@@ -23,7 +23,10 @@ function submitEntry(event) {
   data.entries.unshift(entryData);
   $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
+
   $ul.prepend(createNewEntry(entryData));
+  $viewEntries.className = 'view';
+  $viewEntryForm.className = 'view hidden';
 }
 
 $form.addEventListener('submit', submitEntry);
@@ -60,16 +63,16 @@ document.addEventListener('DOMContentLoaded', loadDom);
 
 var $a = document.querySelector('a');
 var $viewEntries = document.querySelector('[data-view=entries]');
-var $entryForm = document.querySelector('[data-view=entry-form]');
+var $viewEntryForm = document.querySelector('[data-view=entry-form]');
 var $button = document.querySelector('.new-entry-button');
 
 function entriesDisplayClick(event) {
   if (event.target === $a) {
     $viewEntries.className = 'view';
-    $entryForm.className = 'view hidden';
+    $viewEntryForm.className = 'view hidden';
   } else if (event.target === $button) {
     $viewEntries.className = 'view hidden';
-    $entryForm.className = 'view';
+    $viewEntryForm.className = 'view';
   }
 }
 document.addEventListener('click', entriesDisplayClick);
