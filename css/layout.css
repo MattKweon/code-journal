@@ -67,7 +67,7 @@ li {
   margin-bottom: 30px;
 }
 
-p:first-of-type {
+.no-entry {
   margin-top: 50px;
   text-align: center;
 }

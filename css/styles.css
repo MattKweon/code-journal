@@ -23,3 +23,15 @@ input:focus,
 textarea:focus {
   outline: 2px solid #fa81c2;
 }
+
+h2 span {
+  font-size: 1.2rem;
+}
+
+.heading {
+  font-size: 2rem;
+}
+
+a {
+  text-decoration: none;
+}
