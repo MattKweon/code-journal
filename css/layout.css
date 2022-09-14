@@ -71,3 +71,8 @@ li {
   margin-top: 50px;
   text-align: center;
 }
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}

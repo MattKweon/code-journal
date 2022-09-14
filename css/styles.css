@@ -35,3 +35,9 @@ h2 span {
 a {
   text-decoration: none;
 }
+
+.new-entry-button {
+  cursor: pointer;
+  height: 30px;
+  margin-top: 25px;
+}

@@ -60,9 +60,15 @@ document.addEventListener('DOMContentLoaded', loadDom);
 var $a = document.querySelector('a');
 var $viewEntries = document.querySelector('[data-view=entries]');
 var $entryForm = document.querySelector('[data-view=entry-form]');
+var $button = document.querySelector('.new-entry-button');
 
 function entriesDisplayClick(event) {
-  $viewEntries.className = 'view';
-  $entryForm.className = 'view hidden';
+  if (event.target === $a) {
+    $viewEntries.className = 'view';
+    $entryForm.className = 'view hidden';
+  } else if (event.target === $button) {
+    $viewEntries.className = 'view hidden';
+    $entryForm.className = 'view';
+  }
 }
-$a.addEventListener('click', entriesDisplayClick);
+document.addEventListener('click', entriesDisplayClick);
