@@ -1,69 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Code Journal</title>
-  <link rel="icon" href="images/favicon.ico">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <header>
-    <div class="container">
-      <div class="row">
-        <div class="column-full">
-          <h2>Code Journal</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Journal</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="column-full">
+            <h2>Code Journal</h2>
+            <span><a href="#" style="color: white">Entries</a></span>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
-  <main>
-    <div data-view="entry-form">
-      <form action="">
-        <div class="container">
-          <div class="row">
-            <div class="column-full">
-              <h1>New Entry</h1>
+    </header>
+    <main>
+      <div data-view="entry-form" class="view">
+        <form action="">
+          <div class="container">
+            <div class="row flex-column">
+              <div class="column-full">
+                <h1>New Entry</h1>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="column-half">
-              <img class="image-placeholder" src="images/placeholder-image-square.jpg" alt="placeholder-image-square">
+            <div class="row">
+              <div class="column-half">
+                <img
+                  class="image-placeholder"
+                  src="images/placeholder-image-square.jpg"
+                  alt="placeholder-image-square"
+                />
+              </div>
+              <div class="column-half">
+                <label for="title">Title</label>
+                <input name="title" type="text" id="title" required />
+                <label for="url">Photo URL</label>
+                <input
+                  name="url"
+                  type="text"
+                  id="image-url"
+                  required="required"
+                />
+              </div>
             </div>
-            <div class="column-half">
-              <label for="title">Title</label>
-              <input name="title" type="text" id="title" required>
-              <label for="url">Photo URL</label>
-              <input name="url" type="text" id="image-url" required="required">
+            <div class="row">
+              <div class="column-full">
+                <label for="notes">Notes</label>
+                <textarea name="notes" id="notes" required></textarea>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="column-full">
-              <label for="notes">Notes</label>
-              <textarea name="notes" id="notes" required></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="column-full">
-              <div class="row justify-end">
-                <button class="save-button" type="submit">SAVE</button>
+            <div class="row">
+              <div class="column-full">
+                <div class="row justify-end">
+                  <button class="save-button" type="submit">SAVE</button>
+                </div>
               </div>
             </div>
           </div>
+        </form>
+      </div>
+      <div data-view="entries" class="entires hidden">
+        <div class="container">
+          <div class="row">
+            <div class="column-full space-between">
+              <h1>Entries</h1>
+              <button class="new-entry-button">NEW</button>
+            </div>
+          </div>
         </div>
-      </form>
-    </div>
-  </main>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-</body>
+        <p class="no-entry hidden">No entries have been recorded.</p>
+        <ul class="container"></ul>
+      </div>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

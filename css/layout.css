@@ -62,3 +62,26 @@ textarea {
   width: 100%;
   margin: 1rem 0;
 }
+
+li {
+  margin-bottom: 30px;
+}
+
+.no-entry {
+  margin-top: 50px;
+  text-align: center;
+}
+
+h1,
+h2 {
+  display: inline-block;
+}
+
+span {
+  margin: 0 1.5rem;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}

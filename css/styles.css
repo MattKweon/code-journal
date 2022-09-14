@@ -23,3 +23,25 @@ input:focus,
 textarea:focus {
   outline: 2px solid #fa81c2;
 }
+
+a {
+  text-decoration: none;
+}
+
+h2 a {
+  font-size: 1.2rem;
+}
+
+.heading {
+  font-size: 2rem;
+}
+
+.new-entry-button {
+  cursor: pointer;
+  height: 30px;
+  margin-top: 25px;
+}
+
+span {
+  font-size: 1.1rem;
+}
