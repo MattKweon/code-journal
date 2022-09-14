@@ -15,6 +15,7 @@
 
 .column-full,
 .column-half {
+  border: solid red;
   width: 100%;
 }
 
@@ -84,4 +85,10 @@ span {
 .space-between {
   display: flex;
   justify-content: space-between;
+}
+
+.edit-icon {
+  border: solid blue;
+  height: 0 auto;
+  width: 50px;
 }

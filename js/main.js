@@ -43,9 +43,16 @@ function createNewEntry(entry) {
   var anotherChildEl = document.createElement('div');
   anotherChildEl.setAttribute('class', 'column-half');
   newEl.appendChild(anotherChildEl);
+  var spaceBetweenClass = document.createElement('div');
+  spaceBetweenClass.setAttribute('class', 'space-between');
+  anotherChildEl.appendChild(spaceBetweenClass);
   var titleEl = document.createElement('h2');
   titleEl.textContent = entry.title;
-  anotherChildEl.appendChild(titleEl);
+  spaceBetweenClass.appendChild(titleEl);
+  var editIcon = document.createElement('img');
+  editIcon.setAttribute('src', 'images/favicon.ico');
+  editIcon.setAttribute('class', 'edit-icon');
+  spaceBetweenClass.appendChild(editIcon);
   var notesEl = document.createElement('p');
   notesEl.textContent = entry.notes;
   anotherChildEl.appendChild(notesEl);
