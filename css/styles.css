@@ -24,7 +24,11 @@ textarea:focus {
   outline: 2px solid #fa81c2;
 }
 
-h2 span {
+a {
+  text-decoration: none;
+}
+
+h2 a {
   font-size: 1.2rem;
 }
 
@@ -32,12 +36,12 @@ h2 span {
   font-size: 2rem;
 }
 
-a {
-  text-decoration: none;
-}
-
 .new-entry-button {
   cursor: pointer;
   height: 30px;
   margin-top: 25px;
+}
+
+span {
+  font-size: 1.1rem;
 }

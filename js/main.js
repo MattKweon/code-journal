@@ -78,6 +78,7 @@ function entriesDisplayClick(event) {
   } else if (event.target === $button) {
     $viewEntries.className = 'view hidden';
     $viewEntryForm.className = 'view';
+    data.view = 'entry-form';
   }
 }
 document.addEventListener('click', entriesDisplayClick);

@@ -72,6 +72,15 @@ li {
   text-align: center;
 }
 
+h1,
+h2 {
+  display: inline-block;
+}
+
+span {
+  margin: 0 1.5rem;
+}
+
 .space-between {
   display: flex;
   justify-content: space-between;
