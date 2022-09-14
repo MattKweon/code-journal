@@ -50,9 +50,8 @@ function createNewEntry(entry) {
   var titleEl = document.createElement('h2');
   titleEl.textContent = entry.title;
   spaceBetweenClass.appendChild(titleEl);
-  var editIcon = document.createElement('img');
-  editIcon.setAttribute('src', 'images/favicon.ico');
-  editIcon.setAttribute('class', 'edit-icon');
+  var editIcon = document.createElement('i');
+  editIcon.setAttribute('class', 'fa-regular fa-pen-to-square edit-icon');
   spaceBetweenClass.appendChild(editIcon);
   var notesEl = document.createElement('p');
   notesEl.textContent = entry.notes;
@@ -94,6 +93,13 @@ function clickEditIcon(event) {
   if (event.target.className === 'edit-icon') {
     $viewEntryForm.className = 'view';
     $viewEntries.className = 'view hidden';
+    data.view = 'entry-form';
+  }
+  var li = Number(event.target.closest('li').getAttribute('data-entry-id'));
+  for (var i = 0; i < data.entries.length; i++) {
+    if (li === data.entries[i].id) {
+      data.editing = data.entries[i];
+    }
   }
 }
 $ul.addEventListener('click', clickEditIcon);
