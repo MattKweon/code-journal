@@ -57,9 +57,12 @@ function loadDom(event) {
 }
 document.addEventListener('DOMContentLoaded', loadDom);
 
-// var $a = document.querySelector('a');
+var $a = document.querySelector('a');
+var $viewEntries = document.querySelector('[data-view=entries]');
+var $entryForm = document.querySelector('[data-view=entry-form]');
 
-// function entriesDisplayClick(event) {
-
-// }
-// $a.addEventListener('click', entriesDisplayClick);
+function entriesDisplayClick(event) {
+  $viewEntries.className = 'view';
+  $entryForm.className = 'view hidden';
+}
+$a.addEventListener('click', entriesDisplayClick);
