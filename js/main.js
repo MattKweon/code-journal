@@ -58,6 +58,10 @@ function loadDom(event) {
   for (var i = 0; i < data.entries.length; i++) {
     $ul.appendChild(createNewEntry(data.entries[i]));
   }
+  if (data.view === 'entries') {
+    $viewEntries.className = 'view';
+    $viewEntryForm.className = 'view hidden';
+  }
 }
 document.addEventListener('DOMContentLoaded', loadDom);
 
@@ -70,6 +74,7 @@ function entriesDisplayClick(event) {
   if (event.target === $a) {
     $viewEntries.className = 'view';
     $viewEntryForm.className = 'view hidden';
+    data.view = 'entries';
   } else if (event.target === $button) {
     $viewEntries.className = 'view hidden';
     $viewEntryForm.className = 'view';
