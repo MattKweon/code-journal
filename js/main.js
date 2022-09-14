@@ -23,6 +23,7 @@ function submitEntry(event) {
   data.entries.unshift(entryData);
   $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
+  $ul.prepend(createNewEntry(entryData));
 }
 
 $form.addEventListener('submit', submitEntry);
@@ -52,7 +53,7 @@ var $ul = document.querySelector('ul');
 
 function loadDom(event) {
   for (var i = 0; i < data.entries.length; i++) {
-    $ul.prepend(createNewEntry(data.entries[i]));
+    $ul.appendChild(createNewEntry(data.entries[i]));
   }
 }
 document.addEventListener('DOMContentLoaded', loadDom);
