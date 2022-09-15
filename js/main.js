@@ -101,5 +101,8 @@ function clickEditIcon(event) {
       data.editing = data.entries[i];
     }
   }
+  $form.elements.title.value = data.editing.title;
+  $form.elements.url.value = data.editing.imageUrl;
+  $form.elements.notes.value = data.editing.notes;
 }
 $ul.addEventListener('click', clickEditIcon);
