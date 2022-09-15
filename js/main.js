@@ -2,7 +2,7 @@ var $imageUrl = document.querySelector('#image-url');
 var $imagePlaceholder = document.querySelector('.image-placeholder');
 var $pNoEntry = document.querySelector('p.no-entry');
 
-if (data.entries !== []) {
+if (data.entries.length !== 0) {
   $pNoEntry.className = 'no-entry hidden';
 }
 
@@ -25,9 +25,15 @@ function submitEntry(event) {
     id: data.nextEntryId
   };
   var newEntryIdCheck = false;
+  if (data.entries.length === 0) {
+    newEntryIdCheck = true;
+  }
   for (var i = 0; i < data.entries.length; i++) {
     if (data.entries[i].id !== entryData.id) {
       newEntryIdCheck = true;
+    }
+    for (var key in entryData) {
+      data.entries[i][key] = entryData[key];
     }
   }
   if (newEntryIdCheck) {
@@ -35,8 +41,10 @@ function submitEntry(event) {
     data.entries.unshift(entryData);
     $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
     $form.reset();
+    $pNoEntry.className = 'no-entry hidden';
     $ul.prepend(createNewEntry(entryData));
   }
+
   $viewEntries.className = 'view';
   $viewEntryForm.className = 'view hidden';
 }
