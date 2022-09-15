@@ -103,6 +103,10 @@ document.addEventListener('DOMContentLoaded', loadDom);
 var $a = document.querySelector('a');
 var $viewEntries = document.querySelector('[data-view=entries]');
 var $viewEntryForm = document.querySelector('[data-view=entry-form]');
+var $newHeading = document.querySelector('.new-heading');
+var $editHeading = document.querySelector('.edit-heading');
+var $deleteButton = document.querySelector('.delete-button');
+var $emptySpace = document.querySelector('.empty-space');
 
 function clickDisplayView(event) {
   if (event.target === $a) {
@@ -118,6 +122,10 @@ function clickDisplayView(event) {
     $form.elements.title.value = null;
     $form.elements.url.value = null;
     $form.elements.notes.value = null;
+    $newHeading.className = 'new-heading';
+    $editHeading.className = 'edit-heading hidden';
+    $deleteButton.className = 'delete-button hidden';
+    $emptySpace.className = 'empty-space';
 
   }
 }
@@ -139,5 +147,10 @@ function clickEditIcon(event) {
   $form.elements.url.value = data.editing.imageUrl;
   $form.elements.notes.value = data.editing.notes;
   $imagePlaceholder.setAttribute('src', data.editing.imageUrl);
+  $newHeading.className = 'new-heading hidden';
+  $editHeading.className = 'edit-heading';
+  $deleteButton.className = 'delete-button';
+  $emptySpace.className = 'empty-space hidden';
 }
+
 $ul.addEventListener('click', clickEditIcon);

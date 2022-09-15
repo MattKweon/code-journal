@@ -33,10 +33,6 @@
   }
 }
 
-.justify-end {
-  justify-content: flex-end;
-}
-
 #title,
 #image-url {
   height: 30px;

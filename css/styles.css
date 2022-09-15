@@ -24,7 +24,7 @@ textarea:focus {
   outline: 2px solid #fa81c2;
 }
 
-a {
+.no-underline {
   text-decoration: none;
 }
 
