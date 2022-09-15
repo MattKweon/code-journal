@@ -1,5 +1,10 @@
 var $imageUrl = document.querySelector('#image-url');
 var $imagePlaceholder = document.querySelector('.image-placeholder');
+var $pNoEntry = document.querySelector('p.no-entry');
+
+if (data.entries !== []) {
+  $pNoEntry.className = 'no-entry hidden';
+}
 
 function addPhoto(event) {
   $imagePlaceholder.setAttribute('src', event.target.value);
@@ -19,12 +24,19 @@ function submitEntry(event) {
     notes,
     id: data.nextEntryId
   };
-  data.nextEntryId++;
-  data.entries.unshift(entryData);
-  $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
-  $form.reset();
-
-  $ul.prepend(createNewEntry(entryData));
+  var newEntryIdCheck = false;
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].id !== entryData.id) {
+      newEntryIdCheck = true;
+    }
+  }
+  if (newEntryIdCheck) {
+    data.nextEntryId++;
+    data.entries.unshift(entryData);
+    $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
+    $form.reset();
+    $ul.prepend(createNewEntry(entryData));
+  }
   $viewEntries.className = 'view';
   $viewEntryForm.className = 'view hidden';
 }
@@ -90,7 +102,7 @@ function clickDisplayView(event) {
 document.addEventListener('click', clickDisplayView);
 
 function clickEditIcon(event) {
-  if (event.target.className === 'edit-icon') {
+  if (event.target.matches('.edit-icon')) {
     $viewEntryForm.className = 'view';
     $viewEntries.className = 'view hidden';
     data.view = 'entry-form';
