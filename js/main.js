@@ -27,7 +27,6 @@ function submitEntry(event) {
     };
     data.nextEntryId++;
     data.entries.unshift(entryData);
-    $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
     $ul.prepend(createNewEntry(entryData));
   } else {
     var entryDataEdit = {
@@ -51,6 +50,7 @@ function submitEntry(event) {
     }
   }
   $form.reset();
+  $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
   $pNoEntry.className = 'no-entry hidden';
   $viewEntries.className = 'view';
   $viewEntryForm.className = 'view hidden';
@@ -118,6 +118,7 @@ function clickDisplayView(event) {
     $form.elements.title.value = null;
     $form.elements.url.value = null;
     $form.elements.notes.value = null;
+
   }
 }
 document.addEventListener('click', clickDisplayView);
@@ -137,5 +138,6 @@ function clickEditIcon(event) {
   $form.elements.title.value = data.editing.title;
   $form.elements.url.value = data.editing.imageUrl;
   $form.elements.notes.value = data.editing.notes;
+  $imagePlaceholder.setAttribute('src', data.editing.imageUrl);
 }
 $ul.addEventListener('click', clickEditIcon);
