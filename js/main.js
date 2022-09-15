@@ -42,6 +42,12 @@ function submitEntry(event) {
           data.entries[i][key] = entryDataEdit[key];
         }
       }
+      var entriesNode = document.querySelectorAll('li');
+      for (var j = 0; j < entriesNode.length; j++) {
+        if (Number(entriesNode[j].getAttribute('data-entry-id')) === entryDataEdit.id) {
+          entriesNode[j].replaceWith(createNewEntry(entryDataEdit));
+        }
+      }
     }
   }
   $form.reset();
@@ -50,31 +56,6 @@ function submitEntry(event) {
   $viewEntryForm.className = 'view hidden';
   data.editing = null;
 }
-
-//   var newEntryIdCheck = false;
-//   if (data.entries.length === 0) {
-//     newEntryIdCheck = true;
-//   }
-//   for (var i = 0; i < data.entries.length; i++) {
-//     if (data.entries[i].id !== entryData.id) {
-//       newEntryIdCheck = true;
-//     }
-//     for (var key in entryData) {
-//       data.entries[i][key] = entryData[key];
-//     }
-//   }
-//   if (newEntryIdCheck) {
-//     data.nextEntryId++;
-//     data.entries.unshift(entryData);
-//     $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
-//     $form.reset();
-//     $pNoEntry.className = 'no-entry hidden';
-//     $ul.prepend(createNewEntry(entryData));
-//   }
-
-//   $viewEntries.className = 'view';
-//   $viewEntryForm.className = 'view hidden';
-// }
 
 $form.addEventListener('submit', submitEntry);
 
