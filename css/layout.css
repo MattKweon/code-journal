@@ -54,7 +54,6 @@ textarea {
 
 img {
   width: 100%;
-  margin-bottom: 1rem;
 }
 
 input,
@@ -84,4 +83,10 @@ span {
 .space-between {
   display: flex;
   justify-content: space-between;
+}
+
+.edit-icon {
+  height: 0 auto;
+  width: 50px;
+  margin-top: 0.8rem;
 }
