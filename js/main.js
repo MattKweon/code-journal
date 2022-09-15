@@ -18,36 +18,63 @@ function submitEntry(event) {
   var title = $form.elements.title.value;
   var imageUrl = $form.elements.url.value;
   var notes = $form.elements.notes.value;
-  var entryData = {
-    title,
-    imageUrl,
-    notes,
-    id: data.nextEntryId
-  };
-  var newEntryIdCheck = false;
-  if (data.entries.length === 0) {
-    newEntryIdCheck = true;
-  }
-  for (var i = 0; i < data.entries.length; i++) {
-    if (data.entries[i].id !== entryData.id) {
-      newEntryIdCheck = true;
-    }
-    for (var key in entryData) {
-      data.entries[i][key] = entryData[key];
-    }
-  }
-  if (newEntryIdCheck) {
+  if (data.editing === null) {
+    var entryData = {
+      title,
+      imageUrl,
+      notes,
+      id: data.nextEntryId
+    };
     data.nextEntryId++;
     data.entries.unshift(entryData);
     $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
-    $form.reset();
-    $pNoEntry.className = 'no-entry hidden';
     $ul.prepend(createNewEntry(entryData));
+  } else {
+    var entryDataEdit = {
+      title,
+      imageUrl,
+      notes,
+      id: data.editing.id
+    };
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.editing.id === data.entries[i].id) {
+        for (var key in data.entries[i]) {
+          data.entries[i][key] = entryDataEdit[key];
+        }
+      }
+    }
   }
-
+  $form.reset();
+  $pNoEntry.className = 'no-entry hidden';
   $viewEntries.className = 'view';
   $viewEntryForm.className = 'view hidden';
+  data.editing = null;
 }
+
+//   var newEntryIdCheck = false;
+//   if (data.entries.length === 0) {
+//     newEntryIdCheck = true;
+//   }
+//   for (var i = 0; i < data.entries.length; i++) {
+//     if (data.entries[i].id !== entryData.id) {
+//       newEntryIdCheck = true;
+//     }
+//     for (var key in entryData) {
+//       data.entries[i][key] = entryData[key];
+//     }
+//   }
+//   if (newEntryIdCheck) {
+//     data.nextEntryId++;
+//     data.entries.unshift(entryData);
+//     $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
+//     $form.reset();
+//     $pNoEntry.className = 'no-entry hidden';
+//     $ul.prepend(createNewEntry(entryData));
+//   }
+
+//   $viewEntries.className = 'view';
+//   $viewEntryForm.className = 'view hidden';
+// }
 
 $form.addEventListener('submit', submitEntry);
 
@@ -101,10 +128,15 @@ function clickDisplayView(event) {
     $viewEntries.className = 'view';
     $viewEntryForm.className = 'view hidden';
     data.view = 'entries';
+    data.editing = null;
   } else if (event.target.className === 'new-entry-button') {
     $viewEntries.className = 'view hidden';
     $viewEntryForm.className = 'view';
     data.view = 'entry-form';
+    data.editing = null;
+    $form.elements.title.value = null;
+    $form.elements.url.value = null;
+    $form.elements.notes.value = null;
   }
 }
 document.addEventListener('click', clickDisplayView);
