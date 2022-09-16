@@ -126,6 +126,7 @@ function clickDisplayView(event) {
     $editHeading.className = 'edit-heading hidden';
     $deleteButton.className = 'delete-button hidden';
     $emptySpace.className = 'empty-space';
+    $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
 
   }
 }
