@@ -154,3 +154,9 @@ function clickEditIcon(event) {
 }
 
 $ul.addEventListener('click', clickEditIcon);
+
+var $modal = document.querySelector('.modal');
+function deleteButtonClick(event) {
+  $modal.className = 'modal';
+}
+$deleteButton.addEventListener('click', deleteButtonClick);
