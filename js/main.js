@@ -13,6 +13,8 @@ $imageUrl.addEventListener('input', addPhoto);
 
 var $form = document.querySelector('form');
 
+var entriesNode = document.querySelectorAll('li');
+
 function submitEntry(event) {
   event.preventDefault();
   var title = $form.elements.title.value;
@@ -41,7 +43,6 @@ function submitEntry(event) {
           data.entries[i][key] = entryDataEdit[key];
         }
       }
-      var entriesNode = document.querySelectorAll('li');
       for (var j = 0; j < entriesNode.length; j++) {
         if (Number(entriesNode[j].getAttribute('data-entry-id')) === entryDataEdit.id) {
           entriesNode[j].replaceWith(createNewEntry(entryDataEdit));
@@ -107,6 +108,7 @@ var $newHeading = document.querySelector('.new-heading');
 var $editHeading = document.querySelector('.edit-heading');
 var $deleteButton = document.querySelector('.delete-button');
 var $emptySpace = document.querySelector('.empty-space');
+var $confirmButton = document.querySelector('.confirm-button');
 
 function clickDisplayView(event) {
   if (event.target === $a) {
@@ -168,3 +170,17 @@ function cancelButtonClick(event) {
   $modal.className = 'modal hidden';
 }
 $cancelButton.addEventListener('click', cancelButtonClick);
+
+function confirmDeleteButton(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].id === data.editing.id) {
+      data.entries.splice(i, 1);
+    }
+  }
+  for (var j = 0; j < entriesNode.length; j++) {
+    if (Number(entriesNode[j].getAttribute('data-entry-id'))) {
+      entriesNode[j].remove();
+    }
+  }
+}
+$confirmButton.addEventListener('click', confirmDeleteButton);
