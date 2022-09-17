@@ -172,15 +172,19 @@ function cancelButtonClick(event) {
 $cancelButton.addEventListener('click', cancelButtonClick);
 
 function confirmDeleteButton(event) {
+  event.preventDefault();
   for (var i = 0; i < data.entries.length; i++) {
     if (data.entries[i].id === data.editing.id) {
       data.entries.splice(i, 1);
     }
   }
   for (var j = 0; j < entriesNode.length; j++) {
-    if (Number(entriesNode[j].getAttribute('data-entry-id'))) {
+    if (Number(entriesNode[j].getAttribute('data-entry-id')) === data.editing.id) {
       entriesNode[j].remove();
     }
   }
+  $viewEntries.className = 'view';
+  $viewEntryForm.className = 'view hidden';
+  $modal.className = 'view hidden';
 }
 $confirmButton.addEventListener('click', confirmDeleteButton);
