@@ -13,8 +13,6 @@ $imageUrl.addEventListener('input', addPhoto);
 
 var $form = document.querySelector('form');
 
-var entriesNode = document.querySelectorAll('li');
-
 function submitEntry(event) {
   event.preventDefault();
   var title = $form.elements.title.value;
@@ -37,6 +35,7 @@ function submitEntry(event) {
       notes,
       id: data.editing.id
     };
+    var entriesNode = document.querySelectorAll('li');
     for (var i = 0; i < data.entries.length; i++) {
       if (data.editing.id === data.entries[i].id) {
         for (var key in data.entries[i]) {
@@ -178,6 +177,7 @@ function confirmDeleteButton(event) {
       data.entries.splice(i, 1);
     }
   }
+  var entriesNode = document.querySelectorAll('li');
   for (var j = 0; j < entriesNode.length; j++) {
     if (Number(entriesNode[j].getAttribute('data-entry-id')) === data.editing.id) {
       entriesNode[j].remove();
