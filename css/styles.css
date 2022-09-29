@@ -24,7 +24,7 @@ textarea:focus {
   outline: 2px solid #fa81c2;
 }
 
-a {
+.no-underline {
   text-decoration: none;
 }
 
@@ -53,4 +53,42 @@ span {
 i {
   color: #fa81c2;
   font-size: 2rem;
+}
+
+.modal {
+  background-color: rgb(0, 0, 0, 0.6);
+}
+
+.modal-container {
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  height: 10rem;
+  width: 23rem;
+  margin-top: 20rem;
+}
+
+.modal-text {
+  margin: 1rem -1rem;
+  text-align: center;
+}
+
+.modal-buttons {
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.cancel-button {
+  background-color: lightgrey;
+  color: black;
+  height: 2rem;
+  width: 6rem;
+  cursor: pointer;
+}
+
+.confirm-button {
+  background-color: red;
+  height: 2rem;
+  width: 6rem;
+  cursor: pointer;
 }

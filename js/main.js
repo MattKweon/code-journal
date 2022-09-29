@@ -35,13 +35,13 @@ function submitEntry(event) {
       notes,
       id: data.editing.id
     };
+    var entriesNode = document.querySelectorAll('li');
     for (var i = 0; i < data.entries.length; i++) {
       if (data.editing.id === data.entries[i].id) {
         for (var key in data.entries[i]) {
           data.entries[i][key] = entryDataEdit[key];
         }
       }
-      var entriesNode = document.querySelectorAll('li');
       for (var j = 0; j < entriesNode.length; j++) {
         if (Number(entriesNode[j].getAttribute('data-entry-id')) === entryDataEdit.id) {
           entriesNode[j].replaceWith(createNewEntry(entryDataEdit));
@@ -103,6 +103,11 @@ document.addEventListener('DOMContentLoaded', loadDom);
 var $a = document.querySelector('a');
 var $viewEntries = document.querySelector('[data-view=entries]');
 var $viewEntryForm = document.querySelector('[data-view=entry-form]');
+var $newHeading = document.querySelector('.new-heading');
+var $editHeading = document.querySelector('.edit-heading');
+var $deleteButton = document.querySelector('.delete-button');
+var $emptySpace = document.querySelector('.empty-space');
+var $confirmButton = document.querySelector('.confirm-button');
 
 function clickDisplayView(event) {
   if (event.target === $a) {
@@ -118,6 +123,11 @@ function clickDisplayView(event) {
     $form.elements.title.value = null;
     $form.elements.url.value = null;
     $form.elements.notes.value = null;
+    $newHeading.className = 'new-heading';
+    $editHeading.className = 'edit-heading hidden';
+    $deleteButton.className = 'delete-button hidden';
+    $emptySpace.className = 'empty-space';
+    $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
 
   }
 }
@@ -139,5 +149,42 @@ function clickEditIcon(event) {
   $form.elements.url.value = data.editing.imageUrl;
   $form.elements.notes.value = data.editing.notes;
   $imagePlaceholder.setAttribute('src', data.editing.imageUrl);
+  $newHeading.className = 'new-heading hidden';
+  $editHeading.className = 'edit-heading';
+  $deleteButton.className = 'delete-button';
+  $emptySpace.className = 'empty-space hidden';
 }
+
 $ul.addEventListener('click', clickEditIcon);
+
+var $modal = document.querySelector('.modal');
+var $cancelButton = document.querySelector('.cancel-button');
+
+function deleteButtonClick(event) {
+  $modal.className = 'modal';
+}
+$deleteButton.addEventListener('click', deleteButtonClick);
+
+function cancelButtonClick(event) {
+  $modal.className = 'modal hidden';
+}
+$cancelButton.addEventListener('click', cancelButtonClick);
+
+function confirmDeleteButton(event) {
+  event.preventDefault();
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].id === data.editing.id) {
+      data.entries.splice(i, 1);
+    }
+  }
+  var entriesNode = document.querySelectorAll('li');
+  for (var j = 0; j < entriesNode.length; j++) {
+    if (Number(entriesNode[j].getAttribute('data-entry-id')) === data.editing.id) {
+      entriesNode[j].remove();
+    }
+  }
+  $viewEntries.className = 'view';
+  $viewEntryForm.className = 'view hidden';
+  $modal.className = 'view hidden';
+}
+$confirmButton.addEventListener('click', confirmDeleteButton);
